@@ -1,0 +1,146 @@
+<svg viewBox="0 0 1200 1100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-size: 28px; font-weight: bold; fill: #2c3e50; }
+      .label { font-size: 16px; fill: #2c3e50; font-weight: bold; }
+      .small-label { font-size: 13px; fill: #555; }
+      .tiny-label { font-size: 11px; fill: #777; }
+      .box { fill: #ecf0f1; stroke: #34495e; stroke-width: 2; }
+      .agent { fill: #2ecc71; stroke: #27ae60; stroke-width: 2; }
+      .agent-redelegated { fill: #f39c12; stroke: #d68910; stroke-width: 2; }
+      .coordinator { fill: #3498db; stroke: #2980b9; stroke-width: 2; }
+      .decision { fill: #e74c3c; stroke: #c0392b; stroke-width: 2; }
+      .arrow { stroke: #34495e; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .arrow-orange { stroke: #f39c12; stroke-width: 3; fill: none; marker-end: url(#arrowhead-orange); }
+      .text-white { fill: white; font-weight: bold; }
+      .good { fill: #27ae60; font-weight: bold; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#34495e" />
+    </marker>
+    <marker id="arrowhead-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#f39c12" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="600" y="50" text-anchor="middle" class="title">Q4: Iterative Refinement</text>
+  <text x="600" y="85" text-anchor="middle" class="small-label">How does coordinator evaluate synthesis? What triggers re-delegation?</text>
+
+  <!-- ========== ROUND 1 ========== -->
+  <text x="100" y="140" class="label" font-size="18">ROUND 1: Initial Research</text>
+
+  <!-- Search Agent -->
+  <rect x="50" y="160" width="200" height="80" class="agent" rx="5"/>
+  <text x="150" y="180" text-anchor="middle" class="text-white" font-weight="bold">Search Agent</text>
+  <text x="150" y="200" text-anchor="middle" class="text-white" font-size="12">Finds articles</text>
+  <text x="150" y="218" text-anchor="middle" class="text-white" font-size="12">[search_results]</text>
+
+  <line x1="250" y1="200" x2="310" y2="200" class="arrow"/>
+
+  <!-- Analysis Agent -->
+  <rect x="310" y="160" width="200" height="80" class="agent" rx="5"/>
+  <text x="410" y="180" text-anchor="middle" class="text-white" font-weight="bold">Analysis Agent</text>
+  <text x="410" y="200" text-anchor="middle" class="text-white" font-size="12">Extracts insights</text>
+  <text x="410" y="218" text-anchor="middle" class="text-white" font-size="12">[analysis_results]</text>
+
+  <line x1="510" y1="200" x2="570" y2="200" class="arrow"/>
+
+  <!-- Synthesis Agent -->
+  <rect x="570" y="160" width="200" height="80" class="agent" rx="5"/>
+  <text x="670" y="180" text-anchor="middle" class="text-white" font-weight="bold">Synthesis Agent</text>
+  <text x="670" y="200" text-anchor="middle" class="text-white" font-size="12">Creates draft</text>
+  <text x="670" y="218" text-anchor="middle" class="text-white" font-size="12">[synthesis_v1]</text>
+
+  <!-- Coordinator Evaluation -->
+  <line x1="400" y1="240" x2="400" y2="290" class="arrow"/>
+
+  <rect x="250" y="290" width="300" height="90" class="coordinator" rx="5"/>
+  <text x="400" y="315" text-anchor="middle" class="text-white" font-weight="bold">COORDINATOR EVALUATION</text>
+  <text x="400" y="335" text-anchor="middle" class="text-white" font-size="12">Coverage check:</text>
+  <text x="400" y="355" text-anchor="middle" class="text-white" font-size="11">Visual Arts? ✓ | Music? ✓ | Writing? ✗ | Film? ✗</text>
+  <text x="400" y="373" text-anchor="middle" class="text-white" font-size="12" font-weight="bold">GAPS FOUND!</text>
+
+  <!-- Decision -->
+  <line x1="400" y1="380" x2="400" y2="430" class="arrow"/>
+
+  <rect x="200" y="430" width="400" height="50" class="decision" rx="5"/>
+  <text x="400" y="460" text-anchor="middle" class="text-white" font-weight="bold">Gaps critical? YES → RE-DELEGATE</text>
+
+  <!-- ========== ROUND 2 ========== -->
+  <text x="100" y="530" class="label" font-size="18">ROUND 2: Fill Gaps (Re-delegation)</text>
+
+  <!-- Search Agent Re-delegated -->
+  <rect x="50" y="550" width="200" height="80" class="agent-redelegated" rx="5"/>
+  <text x="150" y="570" text-anchor="middle" class="text-white" font-weight="bold">Search Agent</text>
+  <text x="150" y="590" text-anchor="middle" class="text-white" font-size="11">RE-CALLED</text>
+  <text x="150" y="608" text-anchor="middle" class="text-white" font-size="11">Focus: Writing & Film</text>
+
+  <line x1="250" y1="590" x2="310" y2="590" class="arrow-orange" stroke-width="3"/>
+
+  <!-- Analysis Agent Re-delegated -->
+  <rect x="310" y="550" width="200" height="80" class="agent-redelegated" rx="5"/>
+  <text x="410" y="570" text-anchor="middle" class="text-white" font-weight="bold">Analysis Agent</text>
+  <text x="410" y="590" text-anchor="middle" class="text-white" font-size="11">RE-CALLED</text>
+  <text x="410" y="608" text-anchor="middle" class="text-white" font-size="11">With new sources</text>
+
+  <line x1="510" y1="590" x2="570" y2="590" class="arrow-orange" stroke-width="3"/>
+
+  <!-- Synthesis Agent Re-delegated -->
+  <rect x="570" y="550" width="200" height="80" class="agent-redelegated" rx="5"/>
+  <text x="670" y="570" text-anchor="middle" class="text-white" font-weight="bold">Synthesis Agent</text>
+  <text x="670" y="590" text-anchor="middle" class="text-white" font-size="11">RE-CALLED</text>
+  <text x="670" y="608" text-anchor="middle" class="text-white" font-size="11">[synthesis_v2]</text>
+
+  <!-- Final Evaluation -->
+  <line x1="400" y1="630" x2="400" y2="680" class="arrow"/>
+
+  <rect x="250" y="680" width="300" height="70" class="coordinator" rx="5"/>
+  <text x="400" y="705" text-anchor="middle" class="text-white" font-weight="bold">FINAL EVALUATION</text>
+  <text x="400" y="728" text-anchor="middle" class="text-white" font-size="12">All topics covered? ✓ YES → Complete!</text>
+
+  <!-- ========== TRIGGERS SECTION ========== -->
+  <rect x="50" y="800" width="1100" height="270" class="box" rx="8"/>
+  <text x="75" y="830" class="label" font-size="18">What Triggers Re-delegation?</text>
+
+  <!-- Trigger 1 -->
+  <rect x="70" y="860" width="320" height="180" fill="#ffe0e0" stroke="#e74c3c" stroke-width="2" rx="5"/>
+  <text x="90" y="885" class="label" font-size="14">❌ Coverage Gap</text>
+  
+  <text x="90" y="910" class="tiny-label" font-weight="bold">Expected:</text>
+  <text x="110" y="928" class="tiny-label">[Visual Arts, Music,</text>
+  <text x="110" y="943" class="tiny-label">Writing, Film]</text>
+  
+  <text x="90" y="960" class="tiny-label" font-weight="bold">Found:</text>
+  <text x="110" y="978" class="tiny-label">[Visual Arts, Music]</text>
+  
+  <text x="90" y="1010" class="good">→ RE-DELEGATE</text>
+  <text x="90" y="1028" class="small-label">Search: Writing & Film</text>
+
+  <!-- Trigger 2 -->
+  <rect x="440" y="860" width="320" height="180" fill="#ffe0e0" stroke="#e74c3c" stroke-width="2" rx="5"/>
+  <text x="460" y="885" class="label" font-size="14">❌ Low Quality Synthesis</text>
+  
+  <text x="460" y="910" class="tiny-label" font-weight="bold">Signs:</text>
+  <text x="480" y="928" class="tiny-label">• Vague statements</text>
+  <text x="480" y="943" class="tiny-label">• Contradictions</text>
+  <text x="480" y="958" class="tiny-label">• Unsupported claims</text>
+  <text x="480" y="973" class="tiny-label">• Missing reasoning</text>
+  
+  <text x="460" y="1010" class="good">→ RE-DELEGATE</text>
+  <text x="460" y="1028" class="small-label">Deeper analysis needed</text>
+
+  <!-- Trigger 3 -->
+  <rect x="810" y="860" width="320" height="180" fill="#ffe0e0" stroke="#e74c3c" stroke-width="2" rx="5"/>
+  <text x="830" y="885" class="label" font-size="14">❌ Unresolved Conflicts</text>
+  
+  <text x="830" y="910" class="tiny-label" font-weight="bold">Scenario:</text>
+  <text x="850" y="928" class="tiny-label">Source A: AI will</text>
+  <text x="850" y="943" class="tiny-label">displace 50% jobs</text>
+  
+  <text x="830" y="960" class="tiny-label" font-weight="bold">Source B: AI will</text>
+  <text x="850" y="978" class="tiny-label">create more jobs</text>
+  
+  <text x="830" y="1010" class="good">→ RE-DELEGATE</text>
+  <text x="830" y="1028" class="small-label">Verification agent</text>
+</svg>

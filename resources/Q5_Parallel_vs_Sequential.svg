@@ -1,0 +1,153 @@
+<svg viewBox="0 0 1200 1050" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-size: 28px; font-weight: bold; fill: #2c3e50; }
+      .label { font-size: 16px; fill: #2c3e50; font-weight: bold; }
+      .small-label { font-size: 13px; fill: #555; }
+      .tiny-label { font-size: 11px; fill: #777; }
+      .box { fill: #ecf0f1; stroke: #34495e; stroke-width: 2; }
+      .agent { fill: #2ecc71; stroke: #27ae60; stroke-width: 2; }
+      .parallel-good { fill: #c8e6c9; stroke: #4caf50; stroke-width: 2; }
+      .sequential-slow { fill: #ffccbc; stroke: #ff7043; stroke-width: 2; }
+      .arrow { stroke: #34495e; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .text-white { fill: white; font-weight: bold; }
+      .good { fill: #27ae60; font-weight: bold; }
+      .slow { fill: #ff7043; font-weight: bold; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#34495e" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="600" y="50" text-anchor="middle" class="title">Q5: Parallel vs Sequential Execution</text>
+  <text x="600" y="85" text-anchor="middle" class="small-label">When parallel? When sequential? Trade-offs?</text>
+
+  <!-- ========== LEFT: PARALLEL ========== -->
+  <text x="250" y="140" class="label" font-size="18">✅ PARALLEL EXECUTION</text>
+  <text x="250" y="165" class="small-label">(Agents are INDEPENDENT)</text>
+
+  <text x="100" y="210" class="small-label" font-weight="bold">Example: "Research AI in 4 industries"</text>
+
+  <!-- Timeline Parallel -->
+  <text x="100" y="240" class="small-label" font-weight="bold">TIMELINE:</text>
+
+  <!-- Parallel agents -->
+  <rect x="100" y="260" width="150" height="35" class="agent" rx="3"/>
+  <text x="175" y="282" text-anchor="middle" class="text-white" font-size="11">Search: Visual Arts</text>
+
+  <rect x="100" y="310" width="150" height="35" class="agent" rx="3"/>
+  <text x="175" y="332" text-anchor="middle" class="text-white" font-size="11">Search: Music</text>
+
+  <rect x="100" y="360" width="150" height="35" class="agent" rx="3"/>
+  <text x="175" y="382" text-anchor="middle" class="text-white" font-size="11">Search: Writing</text>
+
+  <rect x="100" y="410" width="150" height="35" class="agent" rx="3"/>
+  <text x="175" y="432" text-anchor="middle" class="text-white" font-size="11">Search: Film</text>
+
+  <!-- Parallel converging -->
+  <line x1="250" y1="277" x2="300" y2="277" class="arrow"/>
+  <line x1="250" y1="327" x2="300" y2="277" class="arrow"/>
+  <line x1="250" y1="377" x2="300" y2="277" class="arrow"/>
+  <line x1="250" y1="427" x2="300" y2="277" class="arrow"/>
+
+  <!-- Result -->
+  <rect x="300" y="257" width="180" height="40" class="parallel-good" rx="3"/>
+  <text x="390" y="282" text-anchor="middle" class="text-white" font-weight="bold">RESULTS COLLECTED</text>
+
+  <!-- Time measurement -->
+  <text x="100" y="490" class="good" font-size="14">⚡ TIME: ~10 seconds</text>
+  <text x="100" y="510" class="small-label">All agents run SIMULTANEOUSLY</text>
+  <text x="100" y="528" class="good">✓ Don't wait for Agent1 to finish</text>
+  <text x="100" y="546" class="good">✓ Efficient: 4 agents in parallel time</text>
+
+  <!-- ========== RIGHT: SEQUENTIAL ========== -->
+  <text x="750" y="140" class="label" font-size="18">⚠️ SEQUENTIAL EXECUTION</text>
+  <text x="750" y="165" class="small-label">(Agents DEPEND on each other)</text>
+
+  <text x="600" y="210" class="small-label" font-weight="bold">Example: "Verify conflicting sources"</text>
+
+  <!-- Timeline Sequential -->
+  <text x="600" y="240" class="small-label" font-weight="bold">TIMELINE:</text>
+
+  <!-- Sequential chain -->
+  <rect x="600" y="260" width="150" height="35" class="agent" rx="3"/>
+  <text x="675" y="282" text-anchor="middle" class="text-white" font-size="11">Search Agent</text>
+
+  <line x1="750" y1="277" x2="800" y2="277" class="arrow"/>
+  <text x="770" y="265" class="tiny-label">Results</text>
+
+  <rect x="800" y="260" width="150" height="35" class="agent" rx="3"/>
+  <text x="875" y="282" text-anchor="middle" class="text-white" font-size="11">Analysis Agent</text>
+
+  <line x1="950" y1="277" x2="1000" y2="277" class="arrow"/>
+  <text x="970" y="265" class="tiny-label">Results</text>
+
+  <!-- Vertical step -->
+  <line x1="675" y1="295" x2="675" y2="335" class="arrow"/>
+
+  <rect x="600" y="335" width="150" height="35" class="agent" rx="3"/>
+  <text x="675" y="357" text-anchor="middle" class="text-white" font-size="11">Verification Agent</text>
+
+  <text x="600" y="395" class="tiny-label">(needs prior results)</text>
+
+  <!-- Time measurement -->
+  <text x="600" y="450" class="slow" font-size="14">🐢 TIME: ~30 seconds</text>
+  <text x="600" y="470" class="small-label">Agents run ONE after ANOTHER</text>
+  <text x="600" y="488" class="slow">✓ Necessary: Agent2 needs Agent1</text>
+  <text x="600" y="506" class="slow">✗ Slower: Sequential dependency</text>
+
+  <!-- ========== COMPARISON TABLE ========== -->
+  <rect x="50" y="570" width="1100" height="250" class="box" rx="8"/>
+  <text x="75" y="600" class="label" font-size="18">Parallel vs Sequential Comparison:</text>
+
+  <!-- Header Row -->
+  <line x1="60" y1="615" x2="1040" y2="615" stroke="#34495e" stroke-width="2"/>
+  <text x="90" y="635" class="small-label" font-weight="bold">Aspect</text>
+  <text x="350" y="635" class="small-label" font-weight="bold">PARALLEL</text>
+  <text x="720" y="635" class="small-label" font-weight="bold">SEQUENTIAL</text>
+
+  <!-- Row 1: When to use -->
+  <line x1="60" y1="650" x2="1040" y2="650" stroke="#ccc" stroke-width="1"/>
+  <text x="90" y="675" class="small-label">When to use</text>
+  <text x="350" y="675" class="small-label">Agents INDEPENDENT</text>
+  <text x="720" y="675" class="small-label">Agents DEPENDENT</text>
+
+  <!-- Row 2: Speed -->
+  <line x1="60" y1="690" x2="1040" y2="690" stroke="#ccc" stroke-width="1"/>
+  <text x="90" y="715" class="small-label">Speed</text>
+  <text x="350" y="715" class="good">⚡ FAST (10s)</text>
+  <text x="720" y="715" class="slow">🐢 SLOW (30s)</text>
+
+  <!-- Row 3: Example -->
+  <line x1="60" y1="730" x2="1040" y2="730" stroke="#ccc" stroke-width="1"/>
+  <text x="90" y="755" class="small-label">Example</text>
+  <text x="350" y="755" class="small-label">4 Search agents</text>
+  <text x="720" y="755" class="small-label">Search → Analysis → Verify</text>
+
+  <!-- Row 4: Data flow -->
+  <line x1="60" y1="770" x2="1040" y2="770" stroke="#ccc" stroke-width="1"/>
+  <text x="90" y="795" class="small-label">Data flow</text>
+  <text x="350" y="795" class="small-label">Independent inputs</text>
+  <text x="720" y="795" class="small-label">Output→Input chain</text>
+
+  <!-- Row 5: Cost -->
+  <line x1="60" y1="810" x2="1040" y2="810" stroke="#ccc" stroke-width="1"/>
+  <text x="90" y="835" class="small-label">Cost (API calls)</text>
+  <text x="350" y="835" class="good">Same cost</text>
+  <text x="720" y="835" class="good">Same cost</text>
+
+  <!-- ========== DECISION BOX ========== -->
+  <rect x="80" y="900" width="1040" height="120" fill="#fff3cd" stroke="#ffc107" stroke-width="3" rx="8"/>
+  <text x="600" y="935" text-anchor="middle" class="title" font-size="18">Quick Decision Rule:</text>
+  
+  <text x="600" y="970" text-anchor="middle" class="small-label" font-size="14">
+    <tspan font-weight="bold">IF agents can work INDEPENDENTLY →</tspan>
+  </text>
+  <text x="600" y="990" text-anchor="middle" class="good" font-size="14">Use PARALLEL (faster, same cost)</text>
+  
+  <text x="600" y="1020" text-anchor="middle" class="small-label" font-size="14">
+    <tspan font-weight="bold">IF next agent NEEDS prior results →</tspan>
+  </text>
+  <text x="600" y="1040" text-anchor="middle" class="slow" font-size="14">Use SEQUENTIAL (necessary, slower)</text>
+</svg>

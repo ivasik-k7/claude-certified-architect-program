@@ -1,0 +1,81 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-size: 28px; font-weight: bold; fill: #2c3e50; }
+      .label { font-size: 16px; fill: #2c3e50; font-weight: bold; }
+      .small-label { font-size: 13px; fill: #555; }
+      .box { fill: #ecf0f1; stroke: #34495e; stroke-width: 2; }
+      .hub { fill: #3498db; stroke: #2980b9; stroke-width: 3; }
+      .spoke { fill: #2ecc71; stroke: #27ae60; stroke-width: 2; }
+      .arrow { stroke: #34495e; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .text-white { fill: white; font-weight: bold; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#34495e" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="600" y="50" text-anchor="middle" class="title">Q1: Hub-and-Spoke Pattern</text>
+  <text x="600" y="85" text-anchor="middle" class="small-label">What's the difference between Hub (coordinator) and Spokes (subagents)?</text>
+
+  <!-- Central Hub (Coordinator) -->
+  <circle cx="600" cy="200" r="60" class="hub"/>
+  <text x="600" y="205" text-anchor="middle" class="text-white" font-size="16">COORDINATOR</text>
+  <text x="600" y="225" text-anchor="middle" class="text-white" font-size="14">(HUB)</text>
+
+  <!-- Spokes (Subagents) with connecting lines -->
+  <!-- Search Agent (Left) -->
+  <line x1="540" y1="200" x2="320" y2="200" class="arrow" stroke-width="3"/>
+  <circle cx="240" cy="200" r="40" class="spoke"/>
+  <text x="240" y="207" text-anchor="middle" class="text-white" font-size="14">Search</text>
+
+  <!-- Analysis Agent (Top) -->
+  <line x1="600" y1="140" x2="600" y2="60" class="arrow" stroke-width="3"/>
+  <circle cx="600" cy="20" r="40" class="spoke"/>
+  <text x="600" y="27" text-anchor="middle" class="text-white" font-size="14">Analysis</text>
+
+  <!-- Synthesis Agent (Right) -->
+  <line x1="660" y1="200" x2="880" y2="200" class="arrow" stroke-width="3"/>
+  <circle cx="960" cy="200" r="40" class="spoke"/>
+  <text x="960" y="207" text-anchor="middle" class="text-white" font-size="14">Synthesis</text>
+
+  <!-- Verification Agent (Bottom) -->
+  <line x1="600" y1="260" x2="600" y2="340" class="arrow" stroke-width="3"/>
+  <circle cx="600" cy="420" r="40" class="spoke"/>
+  <text x="600" y="424" text-anchor="middle" class="text-white" font-size="12">Verification</text>
+
+  <!-- HUB Characteristics Box -->
+  <rect x="50" y="500" width="500" height="270" class="box" rx="8" stroke-width="2"/>
+  <text x="75" y="530" class="label" font-size="18">HUB (Coordinator):</text>
+  
+  <text x="95" y="560" class="small-label" font-size="14">✓ Knows EVERYTHING</text>
+  <text x="115" y="580" class="small-label">All tasks, findings, decisions</text>
+  
+  <text x="95" y="610" class="small-label" font-size="14">✓ Controls FLOW</text>
+  <text x="115" y="630" class="small-label">Decides what agents to call</text>
+  <text x="115" y="648" class="small-label">Decides order of execution</text>
+  
+  <text x="95" y="678" class="small-label" font-size="14">✓ Central AUTHORITY</text>
+  <text x="115" y="698" class="small-label">All communication goes through</text>
+  <text x="115" y="716" class="small-label">Nothing bypasses coordinator</text>
+  
+  <text x="95" y="746" class="small-label" font-size="14">✓ Evaluates QUALITY</text>
+  <text x="115" y="766" class="small-label">Checks if results complete</text>
+
+  <!-- SPOKES Characteristics Box -->
+  <rect x="650" y="500" width="500" height="270" class="box" rx="8" stroke-width="2"/>
+  <text x="675" y="530" class="label" font-size="18">SPOKES (Subagents):</text>
+  
+  <text x="695" y="560" class="small-label" font-size="14">✓ SPECIALIZED</text>
+  <text x="715" y="580" class="small-label">Each does ONE job well</text>
+  <text x="715" y="598" class="small-label">Search agent ≠ Analysis agent</text>
+  
+  <text x="695" y="628" class="small-label" font-size="14">✓ ISOLATED</text>
+  <text x="715" y="648" class="small-label">DON'T know about other agents</text>
+  <text x="715" y="666" class="small-label">Search agent doesn't see Synthesis</text>
+  
+  <text x="695" y="696" class="small-label" font-size="14">✓ NO Direct Communication</text>
+  <text x="715" y="716" class="small-label">Must go through coordinator</text>
+  <text x="715" y="734" class="small-label">Can't talk to each other</text>
+</svg>
